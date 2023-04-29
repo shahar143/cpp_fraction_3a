@@ -16,9 +16,8 @@ namespace ariel{
         int den;
     public:
         Fraction(int numerator, int denominator);
-        Fraction(const Fraction& frc);
+        //Fraction(const Fraction& frc);
         explicit Fraction(int numerator);
-        Fraction() = default;
 
         int get_num() const;
         int get_den() const;
@@ -36,12 +35,10 @@ namespace ariel{
 
         //prefix
         Fraction& operator++();
+        Fraction& operator--();
 
         //postfix
         const Fraction operator++(int);
-
-        Fraction& operator--();
-
         const Fraction operator--(int);
 
         bool operator>(const Fraction& frc) const;
@@ -49,12 +46,12 @@ namespace ariel{
         bool operator>=(const Fraction& frc) const;
         bool operator<=(const Fraction& frc) const;
         bool operator==(Fraction frc) const;
-
-        Fraction& operator=(const Fraction& frc);
         bool operator!=(const Fraction& frc) const;
 
-        friend ostream &operator<<(ostream &os, const Fraction& fraction);
-        friend istream& operator>>(istream& is, Fraction& fraction);
+        //Fraction& operator=(const Fraction& frc);
+
+        friend ostream &operator<<(ostream &ost, const Fraction& fraction);
+        friend istream& operator>>(istream& ist, Fraction& fraction);
 
         friend const Fraction operator+(double num1, const Fraction& frc);
         friend const Fraction operator-(double num1, const Fraction& frc);
@@ -79,7 +76,7 @@ namespace ariel{
         friend bool operator==(double num1, const Fraction& frc);
 
         void reduce();
-        int gcd(int a, int b);
+        int gcd(int anum, int bnum) const;
 
     };
 }

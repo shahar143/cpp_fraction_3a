@@ -17,11 +17,11 @@ namespace ariel{
         reduce();
     }
 
-    Fraction::Fraction(const Fraction& frc){
+    /*Fraction::Fraction(const Fraction& frc){
         this->num = frc.get_num();
         this->den = frc.get_den();
         reduce();
-    }
+    }*/
 
     Fraction::Fraction(int numerator){
         Fraction(numerator, 1);
@@ -97,7 +97,7 @@ namespace ariel{
 
 //postfix
     const Fraction Fraction::operator++(int){
-        Fraction frc(*this);
+        Fraction frc(this->get_num(), this->get_den());
         *this += Fraction(1, 1);
         return frc;
 
@@ -111,7 +111,7 @@ namespace ariel{
 
 //postfix
     const Fraction Fraction::operator--(int){
-        Fraction frc(*this);
+        Fraction frc(this->get_num(), this->get_den());
         *this -= Fraction(1, 1);
         return frc;
     }
@@ -152,28 +152,28 @@ namespace ariel{
         return (this->get_num() != frc.get_num() || this->get_den() != frc.get_den());
     }
 
-    Fraction& Fraction::operator=(const Fraction& frc){
+    /*Fraction& Fraction::operator=(const Fraction& frc){
         if(*this != frc){
             num = frc.get_num();
             den = frc.get_den();
         }
         return *this;
+    }*/
+
+    ostream& operator<<(ostream& ost, const Fraction& fraction) {
+        ost << "" << fraction.get_num() << "/" << fraction.get_den();
+        return ost;
     }
 
-    ostream& operator<<(ostream& os, const Fraction& fraction) {
-        os << "" << fraction.get_num() << "/" << fraction.get_den();
-        return os;
-    }
-
-    istream& operator>>(istream& is, Fraction& fraction) {
+    istream& operator>>(istream& ist, Fraction& fraction) {
         int num, den;
-        char c;
-        is >> num >> c >> den;
-        if(c != '/'){
+        char char1;
+        ist >> num >> char1 >> den;
+        if(char1 != '/'){
             throw invalid_argument("invalid input");
         }
         fraction = Fraction(num, den);
-        return is;
+        return ist;
     }
 
     void Fraction::reduce(){
@@ -183,13 +183,13 @@ namespace ariel{
         //cout << "num after reduce " << num << " den after reduce " << den << endl;
     }
 
-    int Fraction::gcd(int a, int b) {
-
-        int minN = min(a,b);
+    //i got help in this function from my friend Mohanad Sefi 208113381
+    int Fraction::gcd(int anum, int bnum) const{
+        int min_res = min(anum, bnum);
         int res = 1;
 
-        for(int i=1; i<=minN; i++){
-            if(a%i==0 && b%i==0)
+        for(int i = 1; i <= min_res; i++){
+            if(anum % i==0 && bnum % i==0)
                 res =i;
         }
         return res;
