@@ -21,7 +21,7 @@ TEST_CASE("Fraction's constructor will create a reduced formed fraction"){
     CHECK(f1 == f2);
 }
 
-TEST_CASE("+, -, *, / operator return reduce form fraction when accepting fraction as an argument"){
+TEST_CASE("+ operator return reduce form fraction when accepting fraction as an argument"){
     Fraction f1(12,48);
     Fraction f2(6, 48);
     Fraction f3(3, 8);
