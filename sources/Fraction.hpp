@@ -21,7 +21,7 @@ namespace ariel{
 
         int get_num() const;
         int get_den() const;
-        friend const Fraction dub_to_frc(double num1);
+        friend const Fraction dub_to_frc(float num1);
 
         const Fraction operator+(const Fraction& frc) const;
         const Fraction operator-(const Fraction& frc) const;
@@ -30,8 +30,8 @@ namespace ariel{
 
         Fraction& operator+=(const Fraction& frc);
         Fraction& operator-=(const Fraction& frc);
-        Fraction& operator+=(double num1);
-        Fraction& operator-=(double num1);
+        Fraction& operator+=(float num1);
+        Fraction& operator-=(float num1);
 
         //prefix
         Fraction& operator++();
@@ -53,27 +53,27 @@ namespace ariel{
         friend ostream &operator<<(ostream &ost, const Fraction& fraction);
         friend istream& operator>>(istream& ist, Fraction& fraction);
 
-        friend const Fraction operator+(double num1, const Fraction& frc);
-        friend const Fraction operator-(double num1, const Fraction& frc);
-        friend const Fraction operator*(double num1, const Fraction& frc);
-        friend const Fraction operator/(double num1, const Fraction& frc);
+        friend const Fraction operator+(float num1, const Fraction& frc);
+        friend const Fraction operator-(float num1, const Fraction& frc);
+        friend const Fraction operator*(float num1, const Fraction& frc);
+        friend const Fraction operator/(float num1, const Fraction& frc);
 
-        const Fraction operator+(double num1) const;
-        const Fraction operator-(double num1) const;
-        const Fraction operator*(double num1) const;
-        const Fraction operator/(double num1) const;
+        const Fraction operator+(float num1) const;
+        const Fraction operator-(float num1) const;
+        const Fraction operator*(float num1) const;
+        const Fraction operator/(float num1) const;
 
-        bool operator>(double num1) const;
-        bool operator<(double num1) const;
-        bool operator>=(double num1) const;
-        bool operator<=(double num1) const;
-        bool operator==(double num1) const;
+        bool operator>(float num1) const;
+        bool operator<(float num1) const;
+        bool operator>=(float num1) const;
+        bool operator<=(float num1) const;
+        bool operator==(float num1) const;
 
-        friend bool operator>(double num1, const Fraction& frc);
-        friend bool operator<(double num1, const Fraction& frc);
-        friend bool operator>=(double num1, const Fraction& frc);
-        friend bool operator<=(double num1, const Fraction& frc);
-        friend bool operator==(double num1, const Fraction& frc);
+        friend bool operator>(float num1, const Fraction& frc);
+        friend bool operator<(float num1, const Fraction& frc);
+        friend bool operator>=(float num1, const Fraction& frc);
+        friend bool operator<=(float num1, const Fraction& frc);
+        friend bool operator==(float num1, const Fraction& frc);
 
         void reduce();
         int gcd(int anum, int bnum) const;

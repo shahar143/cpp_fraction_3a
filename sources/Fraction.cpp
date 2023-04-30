@@ -35,7 +35,7 @@ namespace ariel{
         return den;
     }
 
-    const Fraction dub_to_frc(double num1){
+    const Fraction dub_to_frc(float num1){
         return Fraction((int)(num1*1000), 1000);
     }
 
@@ -75,14 +75,14 @@ namespace ariel{
         return *this;
     }
 
-    Fraction& Fraction::operator+=(double num1){
+    Fraction& Fraction::operator+=(float num1){
         Fraction f = dub_to_frc(num1);
         *this = *this + f;
         this->reduce();
         return *this;
     }
 
-    Fraction& Fraction::operator-=(double num1){
+    Fraction& Fraction::operator-=(float num1){
         Fraction f = dub_to_frc(num1);
         *this = *this - f;
         this->reduce();
@@ -117,29 +117,29 @@ namespace ariel{
     }
 
     bool Fraction::operator>(const Fraction& frc) const{
-        double this_frc = ((double)this->get_num())/((double)this->get_den());
-        double other_frc = ((double)frc.get_num())/((double)frc.get_den());
+        float this_frc = ((float)this->get_num())/((float)this->get_den());
+        float other_frc = ((float)frc.get_num())/((float)frc.get_den());
         if(this_frc > other_frc) return true;
         return false;
     }
 
     bool Fraction::operator<(const Fraction& frc) const{
-        double this_frc = ((double)this->get_num())/((double)this->get_den());
-        double other_frc = ((double)frc.get_num())/((double)frc.get_den());
+        float this_frc = ((float)this->get_num())/((float)this->get_den());
+        float other_frc = ((float)frc.get_num())/((float)frc.get_den());
         if(this_frc < other_frc) return true;
         return false;
     }
 
     bool Fraction::operator>=(const Fraction& frc) const{
-        double this_frc = ((double)this->get_num())/((double)this->get_den());
-        double other_frc = ((double)frc.get_num())/((double)frc.get_den());
+        float this_frc = ((float)this->get_num())/((float)this->get_den());
+        float other_frc = ((float)frc.get_num())/((float)frc.get_den());
         if(this_frc >= other_frc) return true;
         return false;
     }
 
     bool Fraction::operator<=(const Fraction& frc) const{
-        double this_frc = ((double)this->get_num())/((double)this->get_den());
-        double other_frc = ((double)frc.get_num())/((double)frc.get_den());
+        float this_frc = ((float)this->get_num())/((float)this->get_den());
+        float other_frc = ((float)frc.get_num())/((float)frc.get_den());
         if(this_frc <= other_frc) return true;
         return false;
     }
@@ -195,93 +195,93 @@ namespace ariel{
         return res;
     }
 
-    const Fraction operator+(double num1, const Fraction& frc){
+    const Fraction operator+(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         f += frc;
         f.reduce();
         return f;
     }
 
-    const Fraction operator-(double num1, const Fraction& frc){
+    const Fraction operator-(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         return f - frc;
     }
 
-    const Fraction operator*(double num1, const Fraction& frc){
+    const Fraction operator*(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         return f * frc;
     }
 
-    const Fraction operator/(double num1, const Fraction& frc){
+    const Fraction operator/(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         return f / frc;
     }
 
-    const Fraction Fraction::operator+(double num1) const{
+    const Fraction Fraction::operator+(float num1) const{
         Fraction f = dub_to_frc(num1);
         return *this + f;
     }
 
-    const Fraction Fraction::operator-(double num1) const{
+    const Fraction Fraction::operator-(float num1) const{
         Fraction f = dub_to_frc(num1);
         return *this - f;
     }
 
-    const Fraction Fraction::operator*(double num1) const{
+    const Fraction Fraction::operator*(float num1) const{
         Fraction f = dub_to_frc(num1);
         return *this * f;
     }
 
-    const Fraction Fraction::operator/(double num1) const{
+    const Fraction Fraction::operator/(float num1) const{
         Fraction f = dub_to_frc(num1);
         return *this / f;
     }
 
-    bool Fraction::operator>(double num1) const{
+    bool Fraction::operator>(float num1) const{
         Fraction f = dub_to_frc(num1);
         return (*this < f);
     }
 
-    bool Fraction::operator<(double num1) const{
+    bool Fraction::operator<(float num1) const{
         Fraction f = dub_to_frc(num1);
         return (*this > f);
     }
 
-    bool Fraction::operator>=(double num1) const{
+    bool Fraction::operator>=(float num1) const{
         Fraction f = dub_to_frc(num1);
         return (*this >= f);
     }
 
-    bool Fraction::operator<=(double num1) const{
+    bool Fraction::operator<=(float num1) const{
         Fraction f = dub_to_frc(num1);
         return (*this <= f);
     }
 
-    bool Fraction::operator==(double num1) const{
+    bool Fraction::operator==(float num1) const{
         return (*this == Fraction(num1));
     }
 
-    bool operator>(double num1, const Fraction& frc){
+    bool operator>(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         return (f > frc);
     }
 
-    bool operator<(double num1, const Fraction& frc){
+    bool operator<(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         return (f < frc);
     }
 
-    bool operator>=(double num1, const Fraction& frc){
+    bool operator>=(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         return (f >= frc);
     }
 
-    bool operator<=(double num1, const Fraction& frc){
+    bool operator<=(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         return (f <= frc);
     }
 
-    bool operator==(double num1, const Fraction& frc){
+    bool operator==(float num1, const Fraction& frc){
         Fraction f = dub_to_frc(num1);
         return (f == frc);
     }
